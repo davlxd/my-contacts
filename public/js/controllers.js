@@ -17,19 +17,55 @@ angular.module('myApp.controllers', []).
     });
 
   }).
-  controller('IndexCtrl', function ($scope) {
-    // write Ctrl here
-
+  controller('IndexCtrl', function ($scope, $http) {
+      $http.get('/api/contacts').
+	  success(function(data, status, headers, config) {
+	      $scope.contacts = data.contacts;
+	  });
   }).
-  controller('AddCtrl', function ($scope) {
-    // write Ctrl here
-
+  controller('AddCtrl', function ($scope, $http, $location) {
+      $scope.form = {};
+      $scope.submitContact = function () {
+	  $http.post('/api/contact', $scope.form).
+	      success(function(data) {
+		  $location.path('/');
+	      });
+      };
   }).
-  controller('DetailCtrl', function ($scope) {
-    // write Ctrl here
-
+  controller('DetailCtrl', function ($scope, $http, $routeParams) {
+      $http.get('/api/contact/' + $routeParams.id).
+	  success(function(data) {
+	      $scope.contact = data.contact;
+	  });
   }).
-  controller('DeleteCtrl', function ($scope) {
-    // write Ctrl here
+  controller('EditCtrl', function ($scope, $http, $location, $routeParams) {
+      $scope.form = {};
+      $http.get('/api/contact/' + $routeParams.id).
+	  success(function(data) {
+	      $scope.form = data.contact;
+	  });
+      
+      $scope.editContact = function () {
+	  $http.put('/api/contact/' + $routeParams.id, $scope.form).
+	      success(function(data) {
+		  $location.url('/detail/' + $routeParams.id);
+	      });
+      };
+  }).
+  controller('DeleteCtrl', function ($scope, $http, $location, $routeParams) {
+      $http.get('/api/contact/' + $routeParams.id).
+	  success(function(data) {
+	      $scope.contact = data.contact;
+	  });
 
+      $scope.deleteContact = function () {
+	  $http.delete('/api/contact/' + $routeParams.id).
+	      success(function(data) {
+		  $location.url('/');
+	      });
+      };
+
+      $scope.home = function () {
+	  $location.url('/');
+      };
   });

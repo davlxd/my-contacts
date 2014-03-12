@@ -47,6 +47,12 @@ app.get('/partials/:name', routes.partials);
 
 // JSON API
 app.get('/api/name', api.name);
+app.get('/api/contacts', api.contacts);
+
+app.get('/api/contact/:id', api.contact);
+app.post('/api/contact', api.addContact);
+app.put('/api/contact/:id', api.editContact);
+app.delete('/api/contact/:id', api.deleteContact);
 
 // redirect all others to the index (HTML5 history)
 app.get('*', routes.index);
