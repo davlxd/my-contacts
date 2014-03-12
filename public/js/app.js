@@ -10,16 +10,28 @@ angular.module('myApp', [
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.
-    when('/view1', {
-      templateUrl: 'partials/partial1',
-      controller: 'MyCtrl1'
+    when('/', {
+      templateUrl: 'partials/index',
+      controller: 'IndexCtrl'
     }).
-    when('/view2', {
-      templateUrl: 'partials/partial2',
-      controller: 'MyCtrl2'
+    when('/add', {
+      templateUrl: 'partials/add',
+      controller: 'AddCtrl'
+    }).
+    when('/detail', {
+      templateUrl: 'partials/detail',
+      controller: 'DetailCtrl'
+    }).
+    when('/edit', {
+      templateUrl: 'partials/edit',
+      controller: 'EditCtrl'
+    }).
+    when('/delete', {
+      templateUrl: 'partials/delete',
+      controller: 'DeleteCtrl'
     }).
     otherwise({
-      redirectTo: '/view1'
+      redirectTo: '/'
     });
 
   $locationProvider.html5Mode(true);
