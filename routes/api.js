@@ -41,7 +41,7 @@ exports.contact = function (req, res) {
     var id = req.params.id;
     if (id >= 0 && id < data.contacts.length) {
 	res.json({
-	    post: data.contacts[id]
+	    contact: data.contacts[id]
 	});
 
     } else {
@@ -52,7 +52,7 @@ exports.contact = function (req, res) {
 //POST
 exports.addContact = function(req, res) {
     data.contacts.push(req.body);
-    res.json(req.body);
+    res.json(data.contacts.length - 1);
 };
 
 //PUT
@@ -71,8 +71,8 @@ exports.editContact = function(req, res) {
 //DELETE
 exports.deleteContact = function (req, res) {
     var id = req.params.id;
-    if (id >=0 && id < data.posts.length) {
-	data.posts.splice(id, 1)
+    if (id >=0 && id < data.contacts.length) {
+	data.contacts.splice(id, 1)
 	res.json(true);
     } else {
 	res.json(false);

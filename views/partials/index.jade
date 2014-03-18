@@ -1,0 +1,9 @@
+p There are {{contacts.length}} contacts
+div(ng-repeat='contact in contacts')
+  h3 {{contact.name}}
+  div {{contact.events}}
+  a(href='/detail/{{contact.id}}') More
+  | -
+  a(href='/edit/{{contact.id}}') Edit
+  | -
+  a(href='/delete/{{contact.id}}') Delete

@@ -29,9 +29,9 @@ config(function ($routeProvider, $locationProvider) {
     when('/delete', {
       templateUrl: 'partials/delete',
       controller: 'DeleteCtrl'
-    }).
-    otherwise({
-      redirectTo: '/'
+    // }).
+    // otherwise({
+    //   redirectTo: '/'
     });
 
   $locationProvider.html5Mode(true);
