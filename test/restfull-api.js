@@ -15,7 +15,7 @@ describe('GRUD test REST API /api/contacts', function(){
 	done();
       });
   });
-  
+
   it('post one contact', function(done){
     request.post(host + 'api/contact')
       .send({'name': 'whatisthis', 'events': 'idle'})
@@ -26,6 +26,7 @@ describe('GRUD test REST API /api/contacts', function(){
 	done();
       });
   });
+
   it('request newly created contact should succeed', function(done){
     request.get(host + 'api/contact/' + newly_created_contact_id)
       .end(function(error, res){
@@ -34,6 +35,7 @@ describe('GRUD test REST API /api/contacts', function(){
 	done();
       });
   });
+
   it('second request all contacts should include previous post contact', function(done){
     request.get(host + 'api/contacts')
       .end(function(error, res){
@@ -43,6 +45,7 @@ describe('GRUD test REST API /api/contacts', function(){
 	done();
       });
   });
+
   it('delete the contact just created', function(done){
     request.del(host + 'api/contact/' + newly_created_contact_id)
       .end(function(error, res){
@@ -50,6 +53,7 @@ describe('GRUD test REST API /api/contacts', function(){
 	done();
       });
   });
+
   it('secondly request newly created contact should fail', function(done){
     request.get(host + 'api/contact/' + newly_created_contact_id)
       .end(function(error, res){
@@ -58,6 +62,7 @@ describe('GRUD test REST API /api/contacts', function(){
 	done();
       });
   });
+
   it('third request all contacts should exclude previous post contact', function(done){
     request.get(host + 'api/contacts')
       .end(function(error, res){
