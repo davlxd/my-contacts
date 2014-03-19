@@ -20,7 +20,6 @@ describe('GRUD test REST API /api/contacts', function(){
     request.post(host + 'api/contact')
       .send({'name': 'whatisthis', 'events': 'idle'})
       .end(function(error, res){
-	expect(res).to.exisit;
 	expect(res.status).to.equal(200);
 	newly_created_contact_id = res.body;
 	done();
@@ -42,6 +41,24 @@ describe('GRUD test REST API /api/contacts', function(){
 	expect(res.status).to.equal(200);
 	contacts_after = res.body['contacts'];
 	expect(contacts_after.length - contacts.length).to.equal(1);
+	done();
+      });
+  });
+
+  it('modify the contact just created', function(done){
+    request.put(host + 'api/contact/' + newly_created_contact_id)
+      .send({'name': 'whatisthat', 'events': 'idle'})
+      .end(function(error, res){
+	expect(res.status).to.equal(200);
+	done();
+      });
+  });
+
+  it('request modified contact should match', function(done){
+    request.get(host + 'api/contact/' + newly_created_contact_id)
+      .end(function(error, res){
+	expect(res.status).to.equal(200);
+	expect(res.body['contact']['name']).to.contain('whatisthat');
 	done();
       });
   });

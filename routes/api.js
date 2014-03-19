@@ -59,7 +59,7 @@ exports.addContact = function(req, res) {
 exports.editContact = function(req, res) {
     var id = req.params.id;
     if (id >= 0 && id < data.contacts.length) {
-	data.contacts[i] = req.body;
+	data.contacts[id] = req.body;
 	res.json(true);
 
     } else {
