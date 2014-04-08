@@ -19,6 +19,7 @@ module.exports = function(config) {
       'public/js/lib/angular/angular.js',
       'public/js/lib/angular/angular-*.js',
       'public/js/*.js',
+      'node_modules/expect.js/index.js',
       'test/ng/*.js'
     ],
  
@@ -27,7 +28,7 @@ module.exports = function(config) {
     exclude: [
       'public/js/lib/angular/angular-loader.js',
       'public/js/lib/angular/*.min.js',
-      // 'public/js/lib/angular/angular-scenario.js'
+      'public/js/lib/angular/angular-scenario.js'
     ],
 
 
@@ -64,13 +65,13 @@ module.exports = function(config) {
     browsers: ['Chrome'],
 
     plugins : [
-            //'karma-junit-reporter',
-            'karma-chrome-launcher',
-            'karma-firefox-launcher',
-            'karma-script-launcher',
-            //'karma-jasmine'
-            'karma-mocha'
-            ],
+      //'karma-junit-reporter',
+      'karma-chrome-launcher',
+      'karma-firefox-launcher',
+      'karma-script-launcher',
+      //'karma-jasmine'
+      'karma-mocha'
+    ],
 
     // If browser does not capture in given timeout [ms], kill it
     captureTimeout: 60000,
