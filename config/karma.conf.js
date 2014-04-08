@@ -27,7 +27,7 @@ module.exports = function(config) {
     exclude: [
       'public/js/lib/angular/angular-loader.js',
       'public/js/lib/angular/*.min.js',
-      'public/js/lib/angular/angular-scenario.js'
+      // 'public/js/lib/angular/angular-scenario.js'
     ],
 
 
