@@ -19,15 +19,15 @@ config(function ($routeProvider, $locationProvider) {
       templateUrl: 'partials/add',
       controller: 'AddCtrl'
     }).
-    when('/detail', {
+    when('/detail/:id', {
       templateUrl: 'partials/detail',
       controller: 'DetailCtrl'
     }).
-    when('/edit', {
+    when('/edit/:id', {
       templateUrl: 'partials/edit',
       controller: 'EditCtrl'
     }).
-    when('/delete', {
+    when('/delete/:id', {
       templateUrl: 'partials/delete',
       controller: 'DeleteCtrl'
     // }).

@@ -1,5 +1,5 @@
 var initData = {"contacts":[{"name":"lxd","events":"birthday"},{"name":"xdli","events":"OMG"}]}
-var headData = {"contacts":[{"name":"lxd","events":"birthday"}]}
+var headData = {"contact":{"name":"lxd","events":"birthday"}}
 var addData = {'name': 'whatisthis', 'events': 'idle'}
 
 describe('my-contacts controllers', function() {
@@ -53,8 +53,7 @@ describe('my-contacts controllers', function() {
       $httpBackend.expectGET('/api/contact/0').respond(200, headData);
 
       $httpBackend.flush();
-      expect(scope.contacts.length).to.be(1);
-      expect(scope.contacts[0].name).to.be('lxd');
+      expect(scope.contact.name).to.be('lxd');
 
     });
   });
