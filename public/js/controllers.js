@@ -35,7 +35,7 @@ angular.module('myApp.controllers', []).
   controller('DetailCtrl', function ($scope, $http, $routeParams) {
       $http.get('/api/contact/' + $routeParams.id).
 	  success(function(data) {
-	      $scope.contact = data.contact;
+	      $scope.contacts = data.contacts;
 	  });
   }).
   controller('EditCtrl', function ($scope, $http, $location, $routeParams) {
