@@ -59,4 +59,37 @@ describe('my-contacts controllers', function() {
     });
   });
 
+  describe('EditCtrl', function() {
+    it('should edit 1st contact', function(){
+      var scope = $rootScope.$new();
+      $routeParams.id = 0;
+      var ctrl = $controller('EditCtrl', { $scope: scope });
+      scope.form = addData;
+      scope.editContact();
+
+      $httpBackend.expectGET('/api/contact/0').respond(200, headData);
+      $httpBackend.expectPUT('/api/contact/0').respond(201);
+
+      $httpBackend.flush();
+      expect($location.path()).to.be('/detail/0');
+
+    });
+  });
+
+  describe('DeleteCtrl', function() {
+    it('should delete 1st contact', function(){
+      var scope = $rootScope.$new();
+      $routeParams.id = 0;
+      var ctrl = $controller('DeleteCtrl', { $scope: scope });
+      scope.form = addData;
+      scope.deleteContact();
+
+      $httpBackend.expectGET('/api/contact/0').respond(200, headData);
+      $httpBackend.expectDELETE('/api/contact/0').respond(201);
+
+      $httpBackend.flush();
+      expect($location.path()).to.be('/');
+    });
+  });
+
 });
