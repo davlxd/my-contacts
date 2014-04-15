@@ -28,3 +28,14 @@
   content: "";
   padding: 0;
 }
+
+.contact-line {
+  list-style: none;
+  margin-bottom: 1em;
+  padding: 0 0 0.5em;
+}
+
+.contact-line li {
+  display: inline;
+  padding: 0.4em
+}
