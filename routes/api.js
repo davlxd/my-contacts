@@ -34,11 +34,8 @@ exports.contacts = function (req, res) {
   sync();
   var contacts = [];
   data.contacts.forEach(function (contact, i) {
-    contacts.push({
-      id: i,
-      name: contact.name,
-      events: contact.events.substr(0, 10) + '...'
-    });
+    contact.id = i;
+    contacts.push(contact);
   });
   res.json({
     contacts: contacts
