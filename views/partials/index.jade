@@ -1,15 +1,10 @@
 h3 {{contacts.length}} contacts
 
-div(ng-repeat='contact in contacts')
-  ul.contact-line
-    li
-      a.name(href='/detail/{{contact.id}}') {{contact.name}}
-    li
+
+div
+  ul.contacts
+    li.contact-line(ng-repeat='contact in contacts', ng-mouseover='showDetails=true', ng-mouseout='showDetails=false')
+      {{contact.name}}
       {{contact.familiarity}}
-    span(ng-repeat='(key, value) in contact')
-      li
-        {{key}}: {{value}}
-    li
-      a(href='/edit/{{contact.id}}') Edit
-    li
-      a(href='/delete/{{contact.id}}') Delete
+      div.detail(ng-show='showDetails')
+        {{contact.events}}
