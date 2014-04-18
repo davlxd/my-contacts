@@ -15,9 +15,11 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      //{pattern: 'test/*.js', included: false}
-      'public/js/lib/angular/angular.js',
-      'public/js/lib/angular/angular-*.js',
+      'bower_components/angular/angular.js',
+      'bower_components/angular-route/angular-route.js',
+      'bower_components/angular-resource/angular-resource.js',
+      'bower_components/angular-animate/angular-animate.js',
+      'bower_components/angular-mocks/angular-mocks.js',
       'public/js/*.js',
       'node_modules/expect.js/index.js',
       'test/ng/*.js'
@@ -25,11 +27,6 @@ module.exports = function(config) {
  
 
     // list of files to exclude
-    exclude: [
-      'public/js/lib/angular/angular-loader.js',
-      'public/js/lib/angular/*.min.js',
-      'public/js/lib/angular/angular-scenario.js'
-    ],
 
 
     // test results reporter to use
