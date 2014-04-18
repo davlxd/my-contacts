@@ -31,7 +31,8 @@ exports.name = function (req, res) {
 
 //GET
 exports.contacts = function (req, res) {
-  sync();
+  //sync();
+  load();
   var contacts = [];
   data.contacts.forEach(function (contact, i) {
     contact.id = i;
