@@ -9,31 +9,31 @@ angular.module('myApp', [
   'myApp.services',
   'myApp.directives'
 ]).
-config(function ($routeProvider, $locationProvider) {
-  $routeProvider.
-    when('/', {
-      templateUrl: 'partials/index',
-      controller: 'IndexCtrl'
-    }).
-    when('/add', {
-      templateUrl: 'partials/add',
-      controller: 'AddCtrl'
-    }).
-    when('/detail/:id', {
-      templateUrl: 'partials/detail',
-      controller: 'DetailCtrl'
-    }).
-    when('/edit/:id', {
-      templateUrl: 'partials/edit',
-      controller: 'EditCtrl'
-    }).
-    when('/delete/:id', {
-      templateUrl: 'partials/delete',
-      controller: 'DeleteCtrl'
-    // }).
-    // otherwise({
-    //   redirectTo: '/'
-    });
+  config(function ($routeProvider, $locationProvider) {
+    $routeProvider.
+      when('/', {
+	templateUrl: 'partials/index',
+	controller: 'IndexCtrl'
+      }).
+      when('/add', {
+	templateUrl: 'partials/add',
+	controller: 'AddCtrl'
+      }).
+      when('/detail/:id', {
+	templateUrl: 'partials/detail',
+	controller: 'DetailCtrl'
+      }).
+      when('/edit/:id', {
+	templateUrl: 'partials/edit',
+	controller: 'EditCtrl'
+      }).
+      when('/delete/:id', {
+	templateUrl: 'partials/delete',
+	controller: 'DeleteCtrl'
+	// }).
+	// otherwise({
+	//   redirectTo: '/'
+      });
 
-  $locationProvider.html5Mode(true);
-});
+    $locationProvider.html5Mode(true);
+  });
