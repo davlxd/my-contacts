@@ -42,6 +42,10 @@ div.contact-card {
   margin: 0.4em;
 }
 
+div.detail {
+  display: none;
+}
+
 li.fields {
   padding: 0.4em;
   display: inline;

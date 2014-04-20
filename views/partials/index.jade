@@ -4,7 +4,7 @@ h3 {{contacts.length}} contacts
 div
   ul.contacts
     li.contact-line(ng-repeat='contact in contacts')
-      div.contact-card(ng-mouseover='showDetail=true', ng-mouseout='showDetail=false', ng-class='{expand:showDetail}')
+      div.contact-card(ng-mouseenter='showDetail=true', ng-mouseleave='showDetail=false', ng-class='{expand:showDetail}')
         {{contact.name}}
         {{contact.familiarity}}
         div.detail(ng-class='{active:showDetail}')
