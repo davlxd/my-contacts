@@ -1,11 +1,14 @@
 h3 {{contacts.length}} contacts
 
+div
+  | Filter: 
+  input.filter(ng-model='query')
 
 div
   ul.contacts
-    li.contact-line(ng-repeat='contact in contacts')
-      div.contact-card(ng-mouseenter='showDetail=true', ng-mouseleave='showDetail=false', ng-class='{expand:showDetail}')
+    li.contact-line(ng-repeat='contact in contacts | filter:query')
+      div.contact-card
         {{contact.name}}
         {{contact.familiarity}}
-        div.detail(ng-class='{active:showDetail}')
+        div.detail
           {{contact.events}}
